@@ -8,7 +8,7 @@
 <a><img alt="Static Badge" src="https://img.shields.io/badge/made_with-Python-blue"></a>
 </div>
 
-[English](README.md) | [中文](README_ZH.md)
+[English](Baseline/MemSifter/README.md) | [中文](README_ZH.md)
 
 ## 📖 目录
 

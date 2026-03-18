@@ -3,41 +3,37 @@
 ## 0. 核心哲学（Philosophy）
 
 - **Agent First**：除非是方向选择、价值判断、科学直觉，其他能自动化的事情都交给 Agent。  
-- **Everything is Markdown**：`Record\` 文件夹里的 `discussion.md`、 `idea.md`、`YYYY.MM.DD~YYYY.MM.DD.md`、 `method.md`  是整个研究的“外部大脑”，所有重要信息都必须最终落在这几个文件里。  
+- **Everything is Markdown**：`Record/` 文件夹里的 `discussion.md`、 `idea.md`、`YYYY.MM.DD~YYYY.MM.DD.md`、 `method.md`  是整个研究的“外部大脑”，所有重要信息都必须最终落在这几个文件里。  
 - **Vibe Alignment**：人类负责定义 Vibe（想解决什么问题、往哪儿走），Agent 负责把 Vibe 变成具体代码、实验和文档。
 
 ---
 
 ## 1. 项目锚点文件（Project Anchors）
 
-本仓库中，Agent 必须认识并优先使用的核心文件在 `Record\` 文件夹：
+本仓库中，Agent 必须认识并优先使用的核心文件在 `Record/` 文件夹：
 
 - `discussion.md`  
-  - 定义：围绕“当前一个具体问题”的轻量讨论，模板为`Discussion_Template.md`。  
+  - 定义：围绕“当前一个具体问题”的轻量讨论，模板为`Template/Discussion_Template.md`。  
   - 用法：  
     - 顶部写清“当前问题（一句话）”；  
     - 每条发言一行头部：`【角色/姓名】【YYYY-MM-DD HH:MM】`，下一行开始写内容。  
   - 目标：让“我们现在到底在纠结什么”一眼可见。
 
 - `idea.md`  
-  - 定义：整个项目的 **研究蓝图 / 立项书**，模板为`Idea_Template.md`。  
+  - 定义：整个项目的 **研究蓝图 / 立项书**，模板为`Template/Idea_Template.md`。  
   - 内容：背景、SOTA、研究目标、整体实验设计与指标。  
   - 要求：**在做任何实质性修改或实验前，先完整阅读一次。**
 
 - `YYYY.MM.DD~YYYY.MM.DD.md`  
-  - 定义：**按周组织的实验周志**，模板为`Log_Template.md`
+  - 定义：**按周组织的实验周志**，模板为`Template/Log_Template.md`
   - 命名：`YYYY.MM.DD~YYYY.MM.DD.md`（例如 `2026.03.09~2026.03.16.md`），一周一个文件。  
   - 内容：本周 Vibe、每个实验的记录（EXP-...）、本周总结 & 下周 Vibe。  
   - 要求：每当跑完一组有意义的实验，Agent 必须在对应周文件中追加一条记录。
 
 - `method.md`  
-  - 定义：**数学视角的方法说明书**，模板为`Method_Template.md`。  
+  - 定义：**数学视角的方法说明书**，模板为`Template/Method_Template.md`。  
   - 内容：问题形式化、损失函数、定理/推论、为什么奏效、如何和实验对上。  
   - 要求：任何影响方法本身的改动（新损失、新正则、新假设）都要在这里留下痕迹。
-
-- （预留）`TODO_AGENT.md`  
-  - 定义：Agent 的任务看板（可以后续按需添加）。  
-  - 建议格式：`[ ] Pending` / `[/] In Progress` / `[x] Done`。
 
 - `Record/`  
   - 定义：存放实际文件的文件夹 
@@ -69,18 +65,17 @@
 
 ### 2.1 Plan（@Plan：对齐 Vibe）
 
-1. 阅读 / 更新 `idea.md`，确认：  
+1. 阅读 / 更新 `Record/idea.md`，确认：  
    - 当前大课题是什么？  
    - 这一阶段想解决的是哪一块（例如鲁棒性、收敛性、可解释性）？
-1. 在 `discussion.md` 里写清 **当前问题（一句话）**，并补上一条自己的发言：  
+1. 在 `Record/discussion.md` 里写清 **当前问题（一句话）**，并补上一条自己的发言：  
    - 说明**现在卡在哪里**、**打算先从哪一步试**。
-3. （可选）在 `TODO_AGENT.md` 中加上对应的 todo 项（如果你已经创建该文件）。
 
 ### 2.2 Execute（@Execute：实现与实验）
 
 1. 代码 / 配置层面的动作：  
-   - 根据 `idea.md` 和 `method.md` 的设定，修改代码、脚本、配置等。  
-   - **任何影响方法定义或假设的改变，优先同步到 `method.md`。**
+   - 根据 `Record/idea.md` 和 `Record/method.md` 的设定，修改代码、脚本、配置等。  
+   - **任何影响方法定义或假设的改变，优先同步到 `Record/method.md`。**
 1. 实验层面的动作：  
    - 运行一次或多次实验；  
    - 每完成一组有意义的实验：  
@@ -93,11 +88,11 @@
 
 ### 2.3 Reflect（@Reflect：反思与更新）
 
-1. 回到 `discussion.md`：  
+1. 回到 `Record/discussion.md`：  
    - 以 Agent 的身份补一条发言，简要汇报刚刚实验的发现和链接到对应周志文件。  
-1. 回到 `method.md`（如有必要）：  
+1. 回到 `Record/method.md`（如有必要）：  
    - 如果实验结果支持或否定某个假设，更新“为什么奏效 / 局限性 / Agent Notes”等相关部分。 
-1. 回到 `idea.md`（阶段性）：  
+1. 回到 `Record/idea.md`（阶段性）：  
    - 当结论会影响大方向（例如：某条研究目标已完成 / 被否决），同步更新对应章节。
 
 ---
@@ -114,12 +109,12 @@
   - 实验 ID：`EXP-001`  
   - 源意图（Original Vibe）  
   - Agent 执行动作（改了什么）  
-  - 关联文件（`Method.md` / 代码路径 / `Discussion.md` 发言等）  
+  - 关联文件（`Record/Method.md` / 代码路径 / `Record/Discussion.md` 发言等）  
   - 关键指标与简明结论  
   - 下一步建议（Next Step）
 
 - **讨论与实验的连接：**
-  - `discussion.md` 里的讨论，尽量引用对应的 `EXP-...`；  
+  - `Record/discussion.md` 里的讨论，尽量引用对应的 `EXP-...`；  
   - 周志文件中的实验，如直接源于某条讨论，也建议在“关联文件”里记录对应发言的时间或内容摘要。
 
 ---
@@ -133,13 +128,13 @@
   - 具体动作：读取最近一周的 `Record/*.md`，自行判断当前科研阶段，然后用**用户能看懂的语言**输出状态摘要，并主动询问用户这次想做什么。
 
 - **`/new-question`**
-  - 行为：在 `discussion.md` 中更新”当前问题（一句话）”，并写入一条新的起始发言，说明本轮要解决什么。
+  - 行为：在 `Record/discussion.md` 中更新”当前问题（一句话）”，并写入一条新的起始发言，说明本轮要解决什么。
 
 - **`/run-exp`**
   - 行为：根据当前问题和方法设定，执行一次实验，并在当前周的 `Record/YYYY.MM.DD~YYYY.MM.DD.md` 中新增一个 `EXP-...` 记录。
 
 - **`/sync-method`**
-  - 行为：当发现实验结果对理论/方法有影响时，检查 `method.md`，补充或修正相应的公式、定理、假设与解释，并在 `Agent Notes` 中记录一次时间戳。
+  - 行为：当发现实验结果对理论/方法有影响时，检查 `Record/method.md`，补充或修正相应的公式、定理、假设与解释，并在 `Agent Notes` 中记录一次时间戳。
 
 ---
 
